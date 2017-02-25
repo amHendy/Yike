@@ -1,5 +1,45 @@
 var Yike = angular.module('Yike',['ngRoute','Controllers']);
 
+Yike.config(['$routeProvider',function($routeProvider){
+	
+	$routeProvider.when('/today',{
+		templateUrl:'./views/today.html',
+		controller:'todayController'
+	})
+	.when('/older',{
+		templateUrl:'./views/older.html',
+		controller:'olderController'
+	})
+	.when('/author',{
+		templateUrl:'./views/author.html',
+		controller:'authorController'
+	})
+	.when('/category',{
+		templateUrl:'./views/category.html',
+		controller:'categoryController'
+	})
+	.when('/favourite',{
+		templateUrl:'./views/favourite.html',
+		controller:'favouriteController'
+	})
+	.when('/settings',{
+		templateUrl:'./views/settings.html',
+		controller:'settingsController'
+	})
+	.when('/author/:id',{
+		templateUrl:'./views/center.html',
+		controller:'centerController'
+	})
+	.when('/column/:id',{
+		templateUrl:'./views/list.html',
+		controller:'listController'
+	})
+	.otherwise({
+		redirectTo:"/today"
+	})
+
+}]);
+
 Yike.run(['$rootScope',function($rootScope){
 	// 设置类名初始值
 	$rootScope.collapsed = false;
